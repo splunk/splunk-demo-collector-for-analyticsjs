@@ -1,0 +1,50 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title></title>
+    <meta name="description" content="">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.0/jquery.min.js"></script>
+    <script type="text/javascript">
+      var sp=sp||[];(function(){var e=["init","identify","track","trackLink","pageview"],t=function(e){return function(){sp.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var n=0;n<e.length;n++)sp[e[n]]=t(e[n])})(),sp.load=function(e,o){sp._endpoint=e;if(o){sp.init(o)};var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src=("https:"===document.location.protocol?"https://":"http://")+"d21ey8j28ejz92.cloudfront.net/analytics/v1/sp.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(t,n)};
+      sp.load("http://localhost:3000"); // Data Collection Endpoint
+    </script>
+  </head>
+  <body>
+    <button type="button" name="button" data-type="A">Button A</button>
+    <button type="button" name="button" data-type="B">Button B</button>
+
+    <select id="selector" name="Selector A">
+          <option value="Item 0" selected>Select an item</option>
+          <option value="Item 1">Item 1</option>
+          <option value="Item 2">Item 2</option>
+          <option value="Item 3">Item 3</option>
+    </select>
+    <br>
+    <a href="http://www.jquery.org">Outgoing link A</a>
+    <a href="http://events.jquery.org">Outgoing link B</a>
+
+    <script>
+        $(document).ready(function(){
+            $('button').click(function(){
+                sp.track('Click Button', {
+                    button: $(this).data('type'),
+                    loggedin: false
+                });
+            });
+
+            $('#selector').change(function(){
+                sp.track('Select', {
+                    selector: $(this).attr('name'),
+                    option: $(this).find(":selected").text(),
+                    loggedin: true
+                })
+            })
+
+            sp.trackLink($('a').first(), 'Click Link A');
+            sp.trackLink($('a').last(), 'Click Link B');
+        });
+    </script>
+    <!--<img src="http://localhost:3000/t.gif" width="1" height="1">-->
+  </body>
+</html>
