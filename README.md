@@ -1,5 +1,5 @@
 ## Backend Collector for Client-Side Data
-This is a simple Node.js backend collector for client-side data tracked by sp.js javascript analytics tag
+This is a simple Node.js backend collector for client-side data that is tracked by sp.js javascript analytics tag
 
 ## Get Started
 * Install the current project:
@@ -16,6 +16,7 @@ This is a simple Node.js backend collector for client-side data tracked by sp.js
     # commenting out SSL_OPTS and the final https.createServer() call
     ```
 * Start the collector server:
+
     ```
     make server
     ```
@@ -26,6 +27,7 @@ You should see something similar to:
     Listening on port 443
     ```
 * Kill collector server:
+
     ```
     make kill
     ```
