@@ -6,7 +6,7 @@ var https = require('https');
 var app = express();
 
 var HTTP_PORT = 3000,
-    HTTPS_PORT = 443,
+    HTTPS_PORT = 4443,
     SSL_OPTS = {
       key: fs.readFileSync(path.resolve(__dirname,'.ssl/www.example.com.key')),
 	  cert: fs.readFileSync(path.resolve(__dirname,'.ssl/www.example.com.cert'))
@@ -149,10 +149,10 @@ fs.writeFileSync(pidFile, process.pid, 'utf-8');
 
 // Create an HTTP service.
 http.createServer(app).listen(HTTP_PORT,function() {
-  console.log('Listening on port ' + HTTP_PORT);
+  console.log('Listening to HTTP on port ' + HTTP_PORT);
 });
 
 // Create an HTTPS service identical to the HTTP service.
 https.createServer(SSL_OPTS, app).listen(HTTPS_PORT,function() {
-  console.log('Listening on port ' + HTTPS_PORT);
+  console.log('Listening to HTTPS on port ' + HTTPS_PORT);
 });
