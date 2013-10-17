@@ -29,7 +29,7 @@ After pointing sp.js library to your collector server address using `sp.load(<YO
 
 ## Appendix: How to use sp.js Analytics JavaScript Library
 ### Setup
-Simply paste the following snippet of code before the closing `</head>` tag on your page:
+To use sp.js, simply paste the following snippet of code before the closing `</head>` tag on your page:
 ```html
 <script type="text/javascript">
     var sp=sp||[];(function(){var e=["init","identify","track","trackLink","pageview"],t=function(e){return function(){sp.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var n=0;n<e.length;n++)sp[e[n]]=t(e[n])})(),sp.load=function(e,o){sp._endpoint=e;if(o){sp.init(o)};var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src=("https:"===document.location.protocol?"https://":"http://")+"d21ey8j28ejz92.cloudfront.net/analytics/v1/sp.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(t,n)};
@@ -39,7 +39,7 @@ Simply paste the following snippet of code before the closing `</head>` tag on y
 Make sure to replace `https://www.example.com` with your **own collector server URL** to send the data to.
 
 ### API
-sp.js provides a common set of tracking method similar to leading web analytics providers, exemplified by the clean API provided by [segment.io](https://segment.io/libraries/analytics.js/).
+sp.js provides a common set of tracking methods similar to leading web analytics providers & exemplified by the clean API provided by [segment.io](https://segment.io/libraries/analytics.js/).
 
 Here’s the list of tracking methods provided by sp.js:
 
