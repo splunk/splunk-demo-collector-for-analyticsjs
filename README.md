@@ -1,8 +1,8 @@
 ## Backend Collector for Client-Side Data
-This is a Node.js backend collector for client-side data that is tracked by [sp.js](#Appendix) Analytics JavaScript library.
+This is a Node.js backend collector for client-side data that is tracked by [sp.js](#appendix-how-to-use-spjs-analytics-javascript-library) Analytics JavaScript library.
 All tracked events are collected in events.log following [logging best practices](http://dev.splunk.com/view/logging-best-practices/SP-CAAADP6) for Splunk log ingestion.
 
-Refer to [appendix](#Appendix) below on how to use sp.js simple API for tracking.
+Refer to [appendix](#appendix-how-to-use-spjs-analytics-javascript-library) below on how to use sp.js simple API for tracking.
 
 ### Getting Started
 * Install with Node.js package manager [npm](http://npmjs.org/):
@@ -11,7 +11,7 @@ Refer to [appendix](#Appendix) below on how to use sp.js simple API for tracking
 
 * Configure your collector server HTTP/HTTPS ports and SSL certs by changing HTTP_PORT, HTTPS_PORT, and SSL_OPTS variables at the top of server.js file.
 	
-	This configuration step can be skipped for **test & dev purposes**. By default, the server binds to ports 3000 and 4443 for HTTP/HTTPS traffic. It also uses self-signed certificates for SSL, so we recommend you replace them with real certificates for a secure production solution.
+	This configuration step can be skipped for **test & dev purposes**. By default, the server binds to ports 3000 and 4443 for HTTP/HTTPS traffic. It also uses self-signed certificates for SSL under `.ssl/` directory, so we recommend you replace them with real certificates for a secure production solution.
 
 * Start the collector server by typing:
 
@@ -40,7 +40,15 @@ Make sure to replace `https://www.example.com` with your **own collector server 
 
 ### API
 sp.js provides a common set of tracking method similar to leading web analytics providers, exemplified by the clean API provided by [segment.io](https://segment.io/libraries/analytics.js/).
-Here’s the list of common tracking methods:
+
+Here’s the list of tracking methods provided by sp.js:
+
+* [sp.track(event, properties, fn)](#sptrackevent-properties-fn)
+* [sp.trackLink(links, event, properties)](#sptracklinklinks-event-properties)
+* [sp.pageview(url)](#sppageviewurl)
+* [sp.identify(userId, userTraits)](#spidentifyuserid-usertraits)
+
+Full Definition:
 
 #### sp.track(event, properties, fn)
 Track a custom event (i.e. user action) along with a set of associated event properties.
@@ -52,9 +60,9 @@ sp.track('Preview Movie', {
 });
 ```
 Parameters:
-* event: name string of the event to track
-* properties (optional): properties object of key-value pairs associated with the event
-* fn (optional): callback function to be called after short timeout
+* `event`: name string of the event to track
+* `properties` (optional): properties object of key-value pairs associated with the event
+* `fn` (optional): callback function to be called after short timeout
 
 #### sp.trackLink(links, event, properties)
 Track link clicks, including outbound links, with a custom event and custom properties. Tracking occurs before page changes. This automatically records properties such as the anchor (a) tag's href and text.
@@ -74,7 +82,7 @@ Tracks a 'pageview' event including document title and referrer. This is automat
 sp.pageview();
 ```
 Parameters:
-* url (optional): url string. Defaults to page url.
+* `url` (optional): url string. Defaults to page url.
 
 #### sp.identify(userId, userTraits)
 Associate a user with an ID, and record user-specific traits or persistent properties. These persistent properties will be automatically added as properties to any subsequent tracked event.
