@@ -29,7 +29,7 @@ After pointing sp.js library to your collector server address using `sp.load(<YO
 
 ### Additional Resources
 
-* [Still using 3rd party web analytics providers? Build your own using Splunk!](http://blogs.splunk.com/2013/10/17/still-using-3rd-party-web-analytics-providers-build-your-own-using-splunk/)
+* <a href="http://blogs.splunk.com/2013/10/17/still-using-3rd-party-web-analytics-providers-build-your-own-using-splunk/" target="_blank">Still using 3rd party web analytics providers? Build your own using Splunk!</a>
 
 ## Appendix: How to use sp.js Analytics JavaScript Library
 ### Setup
