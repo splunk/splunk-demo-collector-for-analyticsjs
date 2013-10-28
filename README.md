@@ -22,10 +22,14 @@ Refer to [appendix](#appendix-how-to-use-spjs-analytics-javascript-library) belo
 	You should see something similar to:
 
     	Listening to HTTP on port 3000
-    	Listening to HTTPS on port 3443
+    	Listening to HTTPS on port 4443
 
 That's it!
 After pointing sp.js library to your collector server address using `sp.load(<YOUR_COLLECTOR_URL>)`, watch the tracked events being collected in newly created local file **events.log**
+
+### Additional Resources
+
+* [Still using 3rd party web analytics providers? Build your own using Splunk!](http://blogs.splunk.com/2013/10/17/still-using-3rd-party-web-analytics-providers-build-your-own-using-splunk/)
 
 ## Appendix: How to use sp.js Analytics JavaScript Library
 ### Setup
